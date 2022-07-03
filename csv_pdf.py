@@ -23,7 +23,7 @@ class DTMX(DataMatrixEncoder):
     """
     Метод возвращает объект PIL в виде изображения DataMatrix кода
     """
-    def get_image(self, cellsize=2):
+    def get_image(self, cellsize=20):
         dmtx = DataMatrixRenderer(self.matrix, self.regions).get_pilimage(cellsize)
         return dmtx
 
