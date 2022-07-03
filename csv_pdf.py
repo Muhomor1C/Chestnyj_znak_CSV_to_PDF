@@ -16,7 +16,7 @@ text = ('Туфли мужские',
 # format A4 = 210*297mm
 border_length = (210 - margin * 2) / horizontal_quantity
 border_weight = (297 - margin * 2) / vertical_quantity
-string_weight = font_size / 2
+symbol_volume = font_size / 2
 
 
 class DTMX(DataMatrixEncoder):
@@ -36,10 +36,10 @@ def add_frame(textmark, x, y):
     Ограничиваем человекочитаемую часть марки
     31 символом по формату "Честного знака"
     '''
-    pdf.text(x + 2, y + border_weight - string_weight, textmark[0:31])
+    pdf.text(x + symbol_volume, y + border_weight - symbol_volume, textmark[0:31])
 
     for i in range(len(text)):
-        pdf.text(x + border_weight - string_weight, y + string_weight * (i + 1), text[i])
+        pdf.text(x + border_weight - symbol_volume, y + symbol_volume * (i + 1), text[i])
     pdf.rect(x, y - 1, border_length - 1, border_weight - 1)
     pdf.image(img, x+1, y)
 
